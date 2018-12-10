@@ -12,21 +12,21 @@ namespace ConsoleApp5
         {
             //Redis
             {
-                //RedisCache redisCache = new RedisCache(new RedisCacheOptions()
-                //{
-                //    Configuration = "127.0.0.1:6379",
-                //    InstanceName = "test"
-                //});
+                RedisCache redisCache = new RedisCache(new RedisCacheOptions()
+                {
+                    Configuration = "127.0.0.1:6379",
+                    InstanceName = "test"
+                });
 
-                ////在Redis中是以Hash的模式存放的
-                //redisCache.SetString("username", "jack", new DistributedCacheEntryOptions
-                //{
-                //    AbsoluteExpiration = DateTime.Now.AddDays(1),
-                //});
+                //在Redis中是以Hash的模式存放的
+                redisCache.SetString("username", "jack", new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpiration = DateTime.Now.AddDays(1),
+                });
 
-                //var info = redisCache.GetString("username");
+                var info = redisCache.GetString("username");
 
-                //Console.WriteLine(info);
+                Console.WriteLine(info);
             }
 
             //MongoDB

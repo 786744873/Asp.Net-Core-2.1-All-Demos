@@ -35,4 +35,10 @@
     <ProjectReference Include="..\ConsoleApp7_Common\ConsoleApp7_Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Console">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.1.0\ref\netcoreapp2.1\System.Console.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

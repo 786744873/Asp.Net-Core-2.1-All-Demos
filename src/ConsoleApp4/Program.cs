@@ -14,48 +14,48 @@ namespace ConsoleApp4
             {//cache的最大限度为100
 
 
-                //MemoryCache memoryCache = new MemoryCache(new MemoryCacheOptions()
-                //{
-                //    SizeLimit = 100   
-                //});
+                MemoryCache memoryCache = new MemoryCache(new MemoryCacheOptions()
+                {
+                    SizeLimit = 100
+                });
 
-                //for (int i = 0; i < 1000; i++)
-                //{
-                //    memoryCache.Set<string>(i.ToString(), i.ToString(), new MemoryCacheEntryOptions()
-                //    {
-                //        Size = 1
-                //    });
+                for (int i = 0; i < 1000; i++)
+                {
+                    memoryCache.Set<string>(i.ToString(), i.ToString(), new MemoryCacheEntryOptions()
+                    {
+                        Size = 1
+                    });
 
-                //    Console.WriteLine(memoryCache.Count);
-                //}
+                    Console.WriteLine(memoryCache.Count);
+                }
             }
 
             {//被动过期，设置过期回调
 
-                //MemoryCache memoryCache = new MemoryCache(new MemoryCacheOptions()
-                //{
+                MemoryCache memoryCache = new MemoryCache(new MemoryCacheOptions()
+                {
 
-                //});
+                });
 
-                //var cacheOptions = new MemoryCacheEntryOptions
-                //{
-                //    AbsoluteExpiration =DateTimeOffset.Now.AddSeconds(3),//3秒过期
-                //};
-                //cacheOptions.RegisterPostEvictionCallback((key, value, reason, obj) =>
-                //{
-                //    Console.WriteLine(reason);
-                //    Console.WriteLine("执行过期回调");
-                //});
+                var cacheOptions = new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpiration = DateTimeOffset.Now.AddSeconds(3),//3秒过期
+                };
+                cacheOptions.RegisterPostEvictionCallback((key, value, reason, obj) =>
+                {
+                    Console.WriteLine(reason);
+                    Console.WriteLine("执行过期回调");
+                });
 
-                //memoryCache.Set("key", "value", cacheOptions);
+                memoryCache.Set("key", "value", cacheOptions);
 
-                //Console.WriteLine("3秒后过期将执行回调");
-                //while (true)
-                //{
-                //    Thread.Sleep(1000);
-                //    Console.WriteLine(memoryCache.Get<string>("key"));
-                //}
-                //Console.ReadKey();
+                Console.WriteLine("3秒后过期将执行回调");
+                while (true)
+                {
+                    Thread.Sleep(1000);
+                    Console.WriteLine(memoryCache.Get<string>("key"));
+                }
+                Console.ReadKey();
             }
 
 

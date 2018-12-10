@@ -11,7 +11,7 @@ namespace ConsoleApp1
             IConfiguration Configuration = new ConfigurationBuilder()
                 .SetBasePath(Environment.CurrentDirectory)
                 .AddJsonFile("appsettings.json", optional:true,reloadOnChange:true)
-                .AddPropertiesFile("1.properties")
+                .AddPropertiesFile("1.properties")//加载自定义文件
                 .Build();
 
             Appsettings appsettings = new Appsettings();
@@ -24,7 +24,7 @@ namespace ConsoleApp1
             Console.WriteLine(Configuration.GetValue<int>("mysql:port"));
 
             Console.WriteLine(Configuration.GetSection("mysql").GetSection("port").Value);
-
+            //读取自定义文件
             Console.WriteLine(Configuration["host"]);
 
             Console.Read();
