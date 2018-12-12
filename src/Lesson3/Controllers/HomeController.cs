@@ -9,11 +9,12 @@ using Lesson3.ViewComponents;
 
 namespace Lesson3.Controllers
 {
+    //官文地址：https://docs.microsoft.com/zh-cn/aspnet/core/mvc/views/view-components?view=aspnetcore-2.2
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
-            return ViewComponent("TestViewComponent");
+            return ViewComponent(nameof(TestViewCompont));
         }
 
         public IActionResult About()

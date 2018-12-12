@@ -11,19 +11,11 @@ namespace Lesson3.ViewComponents
      * 1.类派生自ViewComponent
      * 2.添加 [ViewComponent] 特性
      * 3.类以ViewComponent结尾
+     * 
+     * 注意，千万不可以ViewComponent结尾再派生自ViewComponent
      */
-    public class TestViewComponent : ViewComponent
+    public class TestViewCompont : ViewComponent
     {
-        public TestViewComponent()
-        {
-        }
-
-        public IViewComponentResult Invoke()
-        {
-            //return View();
-            return Content("这是一个视图组件");
-        }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
             return Content("这是一个视图组件");
