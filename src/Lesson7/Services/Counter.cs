@@ -11,7 +11,7 @@ namespace Lesson7.Services
 
         public int Get()
         {
-            return _count++;
+            return _count;
         }
     }
 }

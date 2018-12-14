@@ -11,7 +11,9 @@ using Lesson7.Filters;
 
 namespace Lesson7.Controllers
 {
-    [TestFilterFactory]
+    [TestFilterFactory]   //采用工厂模式注入带参数的Filter
+    //[TypeFilter(typeof(TestFilterAttribute))]//使用这种的话不需要用在Service中注册TestFilterAttribute(支持传参)
+    //[ServiceFilter(typeof(TestFilterAttribute))]//使用这种的话需要用在Service中注册TestFilterAttribute(不支持传参)
     public class HomeController : Controller
     {
         private ICounter _counter;
