@@ -14,7 +14,8 @@ namespace Lesson3.Controllers
     {
         public IActionResult Index()
         {
-            return ViewComponent(nameof(TestViewCompont));
+            return ViewComponent(nameof(TestViewCompont), new { name = "视图参数" });
+            //return ViewComponent("TestViewCompont");
         }
 
         public IActionResult About()

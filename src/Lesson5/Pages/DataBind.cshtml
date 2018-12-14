@@ -1,0 +1,10 @@
+﻿@page
+@model Lesson5.Pages.DataBindModel
+@{
+    ViewData["Title"] = "DataBind";
+}
+
+<form method="post">
+    <input type="text" name="UserName" value="@Model.UserName"/>
+    <input type="submit" value="提交" />
+</form>

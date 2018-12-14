@@ -1,0 +1,19 @@
+﻿@page
+@model TestPageModel
+<form method="post">
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td>@Html.TextBox("username")</td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td>@Html.Password("password")</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="登录" /></td>
+        </tr>
+    </table>    
+</form>
+@ViewData["postdata"]
