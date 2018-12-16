@@ -1,0 +1,14 @@
+﻿{
+  "database1": {
+    "Server": "127.0.0.1：999",
+    "Name": "testdb",
+    "UId": "sa",
+    "Password": "11111"
+  },
+  "database2": {
+    "Server": "127.0.0.1：999",
+    "Name": "testdb2",
+    "UId": "sa",
+    "Password": "11111"
+  }
+}

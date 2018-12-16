@@ -1,0 +1,8 @@
+﻿{
+  "database": {
+    "Server": "127.0.0.1：999",
+    "Name": "testdb",
+    "UId": "sa",
+    "Password": "11111"
+  }
+}
