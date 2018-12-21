@@ -16,8 +16,8 @@ namespace NewsPublish.Service
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            //optionsBuilder.UseSqlServer(@"Data Source=WYT\MSSQLSERVER2016;Initial Catalog=NewsPublish;User ID=sa;Password=123456",b=>b.UseRowNumberForPaging());
-            optionsBuilder.UseSqlServer(@"Data Source=172.16.6.184;Initial Catalog=NewsPublish;User ID=sa;Password=123456", b => b.UseRowNumberForPaging());
+            optionsBuilder.UseSqlServer(@"Data Source=WYT\MSSQLSERVER2016;Initial Catalog=NewsPublish;User ID=sa;Password=123456",b=>b.UseRowNumberForPaging());
+            //optionsBuilder.UseSqlServer(@"Data Source=172.16.6.184;Initial Catalog=NewsPublish;User ID=sa;Password=123456", b => b.UseRowNumberForPaging());
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

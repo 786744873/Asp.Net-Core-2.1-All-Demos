@@ -8,7 +8,6 @@ namespace NewsPublish.Model.Entity
     {
         public int Id { get; set; }
         public string Contents { get; set; }
-        public int Sort { get; set; }
         public DateTime AddTime { get; set; }
         public string Remark { get; set; }
 
