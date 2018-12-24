@@ -17,6 +17,53 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\admin\font\fontawesome-webfont.svg" />
+    <None Include="wwwroot\admin\js\DD_belatedPNG_0.0.8a-min.js" />
+    <None Include="wwwroot\admin\js\dropzone.min.js" />
+    <None Include="wwwroot\admin\js\H-ui.admin.js" />
+    <None Include="wwwroot\admin\js\H-ui.js" />
+    <None Include="wwwroot\admin\js\html5.js" />
+    <None Include="wwwroot\admin\js\jquery.cookie.js" />
+    <None Include="wwwroot\admin\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\admin\js\jquery.min.1.8.1.js" />
+    <None Include="wwwroot\admin\js\jquery.min.js" />
+    <None Include="wwwroot\admin\js\jquery.SuperSlide.2.1.1.js" />
+    <None Include="wwwroot\admin\js\pagenav.cn.js" />
+    <None Include="wwwroot\admin\js\passwordStrength-min.js" />
+    <None Include="wwwroot\admin\js\PIE_IE678.js" />
+    <None Include="wwwroot\admin\js\preview.js" />
+    <None Include="wwwroot\admin\js\respond.min.js" />
+    <None Include="wwwroot\admin\js\Validform_v5.3.2_min.js" />
+    <None Include="wwwroot\admin\layer\extend\layer.ext.js" />
+    <None Include="wwwroot\admin\layer\layer.min.js" />
+    <None Include="wwwroot\images\banner1.svg" />
+    <None Include="wwwroot\images\banner2.svg" />
+    <None Include="wwwroot\images\banner3.svg" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\site.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\npm.js" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NewsPublish.Model\NewsPublish.Model.csproj" />
     <ProjectReference Include="..\NewsPublish.Service\NewsPublish.Service.csproj" />
   </ItemGroup>
