@@ -35,7 +35,7 @@
                 <option value="0">选择一个新闻类别</option>
                 @if (Model.code == 200)
                 {
-                    @foreach (var classify in Model.data)
+                    foreach (var classify in Model.data)
                     {
                         <option value="@classify.Id">@classify.Name</option>
                     }
