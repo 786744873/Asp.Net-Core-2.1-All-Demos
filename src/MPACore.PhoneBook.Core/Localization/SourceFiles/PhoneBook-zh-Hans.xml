@@ -16,14 +16,12 @@
     <text name="Password" value="密码" />
     <text name="RememberMe" value="记住我" />
     <text name="LogIn" value="登录" />
-    <text name="LoginFailed" value="登录失败!" />
     <text name="AppName" >PhoneBook</text>
     <text name="UserNamePlaceholder" >请输入账户</text>
     <text name="PasswordPlaceholder" >请输入密码</text>
     <text name="CopyRight" >© 2018 PhoneBook</text>
     <text name="LoginPrompt" >正在登陆，请稍候！</text>
     <text name="UserProfile" >用户资料</text>
-    <text name="Users" >用户</text>
     <text name="Roles" >角色</text>
     <text name="Tenants" >租户</text>
     <text name="Logout" >注销</text>
@@ -37,7 +35,6 @@
     <text name="Delete">删除</text>
     <text name="Find" >查找</text>
     <text name="CreationTime">创建时间</text>
-    <text name="Actions">操作</text>
     <text name="Keyword">关键字</text>
     <text name="NoDatas">没有结果</text>
     <text name="Select">请选择</text>
@@ -54,8 +51,6 @@
     <text name="PasswordRequireUppercase">密码至少需要一位是A到Z的大写字母.</text>
     <text name="PasswordTooShort">密码长度太短</text>
     <text name="UserName">用户名</text>
-    <text name="Name">名称</text>
-    <text name="IsActive">是否启用</text>
     <text name="LastLoginTime">最近登陆时间</text>
     <text name="RoleName">角色名</text>
     <text name="DisplayName">显示名</text>
@@ -81,7 +76,6 @@
     <text name="UserDetails">用户详情</text>
     <text name="UserRoles">用户角色</text>
     <text name="ConfirmPassword">确认密码</text>
-    <text name="EmailAddress">邮箱地址</text>
     <text name="Surname">姓</text>
     <text name="DeleteUserConfirm">确认删除该用户？</text>
     <text name="EditUser">编辑用户</text>
@@ -97,7 +91,7 @@
     <text name="Name" value="名字" />
     <text name="EmailAddress" value="邮箱地址" />
     <text name="LoginFailed" value="登录失败!" />
-    <text name="Users" value="Users" />
+    <text name="Users" value="用户" />
     <text name="IsActive" value="是否激活" />
     <text name="Actions" value="操作" />
 
