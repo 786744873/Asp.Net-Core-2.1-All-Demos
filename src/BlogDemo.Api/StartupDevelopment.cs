@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogDemo.Infrastructure.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlogDemo.Api
@@ -16,6 +18,12 @@ namespace BlogDemo.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddDbContext<MyContext>(options =>
+            {
+                options.UseSqlServer(
+                    "Server=127.0.0.1;Database=BlogDemo;User Id=sa;Password=123456;Trusted_Connection=True;");
+            });
 
             services.AddHttpsRedirection(options =>
             {
