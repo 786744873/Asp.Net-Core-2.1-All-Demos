@@ -3,10 +3,10 @@
 /// =================================
 /// CLR版本	：4.0.30319.42000
 /// 命名空间	：BlogDemo.Infrastructure.Database
-/// 文件名称	：MyContext.cs
+/// 文件名称	：UnitOfWork.cs
 /// =================================
 /// 创 建 者	：wyt
-/// 创建日期	：2019/1/5 18:06:08 
+/// 创建日期	：2019/1/7 11:27:11 
 /// 邮箱		：786744873@qq.com
 /// 个人主站	：https://www.cnblogs.com/wyt007/
 ///
@@ -23,32 +23,28 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
-using BlogDemo.Core.Entities;
-using BlogDemo.Core.EntityConfigurations;
+using System.Threading.Tasks;
 using BlogDemo.Core.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace BlogDemo.Infrastructure.Database
 {
     /// <summary>
     /// 
-    /// <see cref="MyContext" langword="" />
+    /// <see cref="UnitOfWork" langword="" />
     /// </summary>
-    public class MyContext : DbContext
+    public class UnitOfWork : IUnitOfWork
     {
-        public MyContext(DbContextOptions<MyContext> options) : base(options: options)
-        { }
+        private readonly MyContext _myContext;
 
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public UnitOfWork(MyContext myContext)
         {
-            //modelBuilder.ApplyConfiguration(new PostConfiguration());
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(IEntity).Assembly);
+            _myContext = myContext;
         }
 
-
-        public DbSet<Post> Posts { get; set; }
+        public async Task<bool> SaveAsync()
+        {
+            return await _myContext.SaveChangesAsync() > 0;
+        }
     }
 }

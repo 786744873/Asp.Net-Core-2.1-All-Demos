@@ -2,11 +2,11 @@
 ///
 /// =================================
 /// CLR版本	：4.0.30319.42000
-/// 命名空间	：BlogDemo.Infrastructure.Database
-/// 文件名称	：MyContext.cs
+/// 命名空间	：BlogDemo.Infrastructure.Repositories
+/// 文件名称	：PostRepository.cs
 /// =================================
 /// 创 建 者	：wyt
-/// 创建日期	：2019/1/5 18:06:08 
+/// 创建日期	：2019/1/7 11:15:27 
 /// 邮箱		：786744873@qq.com
 /// 个人主站	：https://www.cnblogs.com/wyt007/
 ///
@@ -23,32 +23,36 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using BlogDemo.Core.Entities;
-using BlogDemo.Core.EntityConfigurations;
 using BlogDemo.Core.Interfaces;
+using BlogDemo.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlogDemo.Infrastructure.Database
+namespace BlogDemo.Infrastructure.Repositories
 {
     /// <summary>
     /// 
-    /// <see cref="MyContext" langword="" />
+    /// <see cref="PostRepository" langword="" />
     /// </summary>
-    public class MyContext : DbContext
+    public class PostRepository : IPostRepository
     {
-        public MyContext(DbContextOptions<MyContext> options) : base(options: options)
-        { }
+        private readonly MyContext _myContext;
 
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public PostRepository(MyContext myContext)
         {
-            //modelBuilder.ApplyConfiguration(new PostConfiguration());
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(IEntity).Assembly);
+            _myContext = myContext;
         }
 
+        public async Task<IEnumerable<Post>> GetAllPostsAsync()
+        {
+            return await _myContext.Posts.ToListAsync();
+        }
 
-        public DbSet<Post> Posts { get; set; }
+        public void AddPost(Post post)
+        {
+            _myContext.Posts.Add(post);
+        }
     }
 }

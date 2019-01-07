@@ -1,0 +1,292 @@
+2019-01-07 19:11:56.425 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:11:56.992 +08:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Posts] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-01-07 19:11:57.094 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-01-07 19:11:58.397 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-01-07 19:11:58.431 +08:00 [INF] Request finished in 35.4846ms 307 
+2019-01-07 19:11:58.506 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/values  
+2019-01-07 19:11:58.734 +08:00 [INF] Route matched with {action = "Get", controller = "Value"}. Executing action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api)
+2019-01-07 19:11:58.750 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:11:58.755 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.7761ms.
+2019-01-07 19:11:58.767 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2019-01-07 19:11:58.792 +08:00 [INF] Executed action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) in 54.4131ms
+2019-01-07 19:11:58.797 +08:00 [INF] Request finished in 289.8375ms 200 text/plain; charset=utf-8
+2019-01-07 19:12:35.018 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-01-07 19:12:35.045 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-07 19:12:35.048 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:12:35.054 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:12:35.097 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title]
+FROM [Posts] AS [p]
+2019-01-07 19:12:35.141 +08:00 [ERR] Get All Posts......
+2019-01-07 19:12:35.143 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 93.786ms.
+2019-01-07 19:12:35.147 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Core.Entities.Post, BlogDemo.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-07 19:12:35.208 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 160.48160000000001ms
+2019-01-07 19:12:35.215 +08:00 [INF] Request finished in 196.477ms 200 application/json; charset=utf-8
+2019-01-07 19:12:35.467 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-01-07 19:12:35.475 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-07 19:12:35.477 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:12:35.479 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:12:35.491 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title]
+FROM [Posts] AS [p]
+2019-01-07 19:12:35.497 +08:00 [ERR] Get All Posts......
+2019-01-07 19:12:35.498 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 19.479100000000003ms.
+2019-01-07 19:12:35.504 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Core.Entities.Post, BlogDemo.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-07 19:12:35.506 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 29.1295ms
+2019-01-07 19:12:35.517 +08:00 [INF] Request finished in 49.8234ms 200 application/json; charset=utf-8
+2019-01-07 19:13:58.617 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:13:58.880 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Posts] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-01-07 19:13:58.961 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-01-07 19:13:59.591 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-01-07 19:13:59.641 +08:00 [INF] Request finished in 47.9641ms 307 
+2019-01-07 19:13:59.705 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/values  
+2019-01-07 19:13:59.872 +08:00 [INF] Route matched with {action = "Get", controller = "Value"}. Executing action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api)
+2019-01-07 19:13:59.891 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:13:59.898 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.34990000000000004ms.
+2019-01-07 19:13:59.914 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2019-01-07 19:13:59.927 +08:00 [INF] Executed action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) in 44.454ms
+2019-01-07 19:13:59.945 +08:00 [INF] Request finished in 230.0269ms 200 text/plain; charset=utf-8
+2019-01-07 19:24:47.983 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:24:48.358 +08:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Posts] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-01-07 19:24:48.456 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-01-07 19:24:49.570 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-01-07 19:24:49.613 +08:00 [INF] Request finished in 43.1237ms 307 
+2019-01-07 19:24:49.684 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/values  
+2019-01-07 19:24:49.892 +08:00 [INF] Route matched with {action = "Get", controller = "Value"}. Executing action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api)
+2019-01-07 19:24:49.910 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:24:49.914 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.38770000000000004ms.
+2019-01-07 19:24:49.927 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2019-01-07 19:24:49.942 +08:00 [INF] Executed action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) in 44.5437ms
+2019-01-07 19:24:49.951 +08:00 [INF] Request finished in 266.3049ms 200 text/plain; charset=utf-8
+2019-01-07 19:24:57.926 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-01-07 19:24:57.940 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-07 19:24:57.943 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:24:57.947 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:24:58.006 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title]
+FROM [Posts] AS [p]
+2019-01-07 19:24:58.074 +08:00 [ERR] Get All Posts......
+2019-01-07 19:24:58.076 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 132.2153ms.
+2019-01-07 19:24:58.081 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Core.Entities.Post, BlogDemo.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-07 19:24:58.153 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 209.7422ms
+2019-01-07 19:24:58.160 +08:00 [INF] Request finished in 234.3351ms 200 application/json; charset=utf-8
+2019-01-07 19:24:58.579 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-01-07 19:24:58.580 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-07 19:24:58.584 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:24:58.595 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:24:58.609 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title]
+FROM [Posts] AS [p]
+2019-01-07 19:24:58.615 +08:00 [ERR] Get All Posts......
+2019-01-07 19:24:58.616 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 21.5961ms.
+2019-01-07 19:24:58.619 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Core.Entities.Post, BlogDemo.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-07 19:24:58.621 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 36.350100000000005ms
+2019-01-07 19:24:58.622 +08:00 [INF] Request finished in 42.8259ms 200 application/json; charset=utf-8
+2019-01-07 19:52:14.993 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:52:15.263 +08:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Posts] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-01-07 19:52:15.343 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-01-07 19:52:16.574 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-01-07 19:52:16.609 +08:00 [INF] Request finished in 34.7527ms 307 
+2019-01-07 19:52:16.663 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/values  
+2019-01-07 19:52:16.830 +08:00 [INF] Route matched with {action = "Get", controller = "Value"}. Executing action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api)
+2019-01-07 19:52:16.847 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:52:16.853 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.3496ms.
+2019-01-07 19:52:16.862 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2019-01-07 19:52:16.871 +08:00 [INF] Executed action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) in 33.8447ms
+2019-01-07 19:52:16.881 +08:00 [INF] Request finished in 217.1203ms 200 text/plain; charset=utf-8
+2019-01-07 19:52:26.627 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-01-07 19:52:26.636 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-07 19:52:26.639 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:52:26.644 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:52:26.690 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title]
+FROM [Posts] AS [p]
+2019-01-07 19:52:27.217 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 577.9061ms
+2019-01-07 19:52:27.349 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: aaaaaaaaaa
+   at BlogDemo.Api.Controllers.PostController.Get() in F:\测试Demo\Asp.Net-Core-2.1-All-Demos\src\BlogDemo.Api\Controllers\PostController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-01-07 19:52:27.423 +08:00 [ERR] aaaaaaaaaa
+System.Exception: aaaaaaaaaa
+   at BlogDemo.Api.Controllers.PostController.Get() in F:\测试Demo\Asp.Net-Core-2.1-All-Demos\src\BlogDemo.Api\Controllers\PostController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-01-07 19:52:27.442 +08:00 [INF] Request finished in 814.3189ms 500 application/json
+2019-01-07 19:52:42.527 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-01-07 19:52:42.534 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-07 19:52:42.544 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:52:42.549 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:52:42.572 +08:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title]
+FROM [Posts] AS [p]
+2019-01-07 19:52:43.049 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 505.1095ms
+2019-01-07 19:52:43.199 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: aaaaaaaaaa
+   at BlogDemo.Api.Controllers.PostController.Get() in F:\测试Demo\Asp.Net-Core-2.1-All-Demos\src\BlogDemo.Api\Controllers\PostController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-01-07 19:52:45.282 +08:00 [ERR] aaaaaaaaaa
+System.Exception: aaaaaaaaaa
+   at BlogDemo.Api.Controllers.PostController.Get() in F:\测试Demo\Asp.Net-Core-2.1-All-Demos\src\BlogDemo.Api\Controllers\PostController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-01-07 19:52:45.471 +08:00 [INF] Request finished in 2938.7309ms 500 application/json
+2019-01-07 19:52:51.127 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-01-07 19:52:51.131 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-07 19:52:51.139 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:52:51.144 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:52:51.150 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title]
+FROM [Posts] AS [p]
+2019-01-07 19:52:51.639 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 499.38730000000004ms
+2019-01-07 19:52:51.777 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: aaaaaaaaaa
+   at BlogDemo.Api.Controllers.PostController.Get() in F:\测试Demo\Asp.Net-Core-2.1-All-Demos\src\BlogDemo.Api\Controllers\PostController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-01-07 19:52:53.838 +08:00 [ERR] aaaaaaaaaa
+System.Exception: aaaaaaaaaa
+   at BlogDemo.Api.Controllers.PostController.Get() in F:\测试Demo\Asp.Net-Core-2.1-All-Demos\src\BlogDemo.Api\Controllers\PostController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-01-07 19:52:54.006 +08:00 [INF] Request finished in 2873.9393ms 500 application/json
+2019-01-07 19:52:58.396 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts  
+2019-01-07 19:52:58.397 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-07 19:52:58.399 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-07 19:52:58.403 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2019-01-07 19:52:58.407 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title]
+FROM [Posts] AS [p]
+2019-01-07 19:52:58.876 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 476.8322ms
+2019-01-07 19:52:59.019 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: aaaaaaaaaa
+   at BlogDemo.Api.Controllers.PostController.Get() in F:\测试Demo\Asp.Net-Core-2.1-All-Demos\src\BlogDemo.Api\Controllers\PostController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-01-07 19:52:59.985 +08:00 [ERR] aaaaaaaaaa
+System.Exception: aaaaaaaaaa
+   at BlogDemo.Api.Controllers.PostController.Get() in F:\测试Demo\Asp.Net-Core-2.1-All-Demos\src\BlogDemo.Api\Controllers\PostController.cs:line 40
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.Invoke(HttpContext context)
+2019-01-07 19:53:00.165 +08:00 [INF] Request finished in 1765.7691ms 500 application/json
