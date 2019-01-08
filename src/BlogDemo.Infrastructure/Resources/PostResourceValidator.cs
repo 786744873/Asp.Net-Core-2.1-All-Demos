@@ -2,11 +2,11 @@
 ///
 /// =================================
 /// CLR版本	：4.0.30319.42000
-/// 命名空间	：BlogDemo.Core.Interfaces
-/// 文件名称	：IPostRepository.cs
+/// 命名空间	：BlogDemo.Infrastructure.Resources
+/// 文件名称	：PostResourceValidator.cs
 /// =================================
 /// 创 建 者	：wyt
-/// 创建日期	：2019/1/7 11:14:03 
+/// 创建日期	：2019/1/8 17:17:50 
 /// 邮箱		：786744873@qq.com
 /// 个人主站	：https://www.cnblogs.com/wyt007/
 ///
@@ -24,20 +24,25 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using BlogDemo.Core.Entities;
+using FluentValidation;
 
-namespace BlogDemo.Core.Interfaces
+namespace BlogDemo.Infrastructure.Resources
 {
     /// <summary>
     /// 
+    /// <see cref="PostResourceValidator" langword="" />
     /// </summary>
-    public interface IPostRepository
+    public class PostResourceValidator: AbstractValidator<PostResource>
     {
-        Task<PaginatedList<Post>> GetAllPostsAsync(PostParameters postParameters);
-
-        Task<Post> GetPostByIdAsync(int id);
-
-        void AddPost(Post post);
+        public PostResourceValidator()
+        {
+            RuleFor(x=>x.Author)
+                .NotNull()
+                .WithName("作者")
+                .WithMessage("{PropertyName}是必填的")
+                .MaximumLength(50)
+                .WithMessage("{PropertyName}的最大长度是{MaxLength}");
+        }
     }
 }

@@ -2,11 +2,11 @@
 ///
 /// =================================
 /// CLR版本	：4.0.30319.42000
-/// 命名空间	：BlogDemo.Core.Interfaces
-/// 文件名称	：IPostRepository.cs
+/// 命名空间	：BlogDemo.Core.Entities
+/// 文件名称	：PaginationResourceUriType.cs
 /// =================================
 /// 创 建 者	：wyt
-/// 创建日期	：2019/1/7 11:14:03 
+/// 创建日期	：2019/1/8 20:50:47 
 /// 邮箱		：786744873@qq.com
 /// 个人主站	：https://www.cnblogs.com/wyt007/
 ///
@@ -24,20 +24,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
-using BlogDemo.Core.Entities;
 
-namespace BlogDemo.Core.Interfaces
+namespace BlogDemo.Core.Entities
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IPostRepository
+    public enum PaginationResourceUriType
     {
-        Task<PaginatedList<Post>> GetAllPostsAsync(PostParameters postParameters);
-
-        Task<Post> GetPostByIdAsync(int id);
-
-        void AddPost(Post post);
+        CurrentPage,
+        PreviousPage,
+        NextPage
     }
 }
