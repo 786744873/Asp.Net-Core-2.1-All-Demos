@@ -24,11 +24,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Text;
 using System.Threading.Tasks;
 using BlogDemo.Core.Entities;
 using BlogDemo.Core.Interfaces;
 using BlogDemo.Infrastructure.Database;
+using BlogDemo.Infrastructure.Extensions;
+using BlogDemo.Infrastructure.Resources;
+using BlogDemo.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogDemo.Infrastructure.Repositories
@@ -40,15 +44,29 @@ namespace BlogDemo.Infrastructure.Repositories
     public class PostRepository : IPostRepository
     {
         private readonly MyContext _myContext;
+        private readonly IPropertyMappingContainer _propertyMappingContainer;
 
-        public PostRepository(MyContext myContext)
+        public PostRepository(MyContext myContext, IPropertyMappingContainer propertyMappingContainer)
         {
             _myContext = myContext;
+            _propertyMappingContainer = propertyMappingContainer;
         }
 
         public async Task<PaginatedList<Post>> GetAllPostsAsync(PostParameters postParameters)
         {
-            var query = _myContext.Posts.OrderBy(x => x.Id);
+            var query = _myContext.Posts.AsQueryable();
+
+            if (!string.IsNullOrEmpty(postParameters.Title))
+            {
+                var title = postParameters.Title.ToLowerInvariant();
+                query = query.Where(x => x.Title.ToLowerInvariant()==title );
+            }
+
+            //query = query.OrderBy(x => x.Id);
+
+            //query = query.ApplySort(postParameters.OrderBy, _propertyMappingContainer.Resolve<PostResource, Post>());
+
+            query = query.OrderBy(postParameters.OrderBy);
 
             var count = await query.CountAsync();
 

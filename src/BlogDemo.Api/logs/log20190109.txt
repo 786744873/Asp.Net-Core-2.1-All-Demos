@@ -1,0 +1,462 @@
+2019-01-09 16:34:32.585 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:34:33.250 +08:00 [INF] Executed DbCommand (184ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Posts] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-01-09 16:34:33.302 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-01-09 16:34:34.960 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-01-09 16:34:34.997 +08:00 [INF] Request finished in 29.6549ms 307 
+2019-01-09 16:34:35.101 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/values  
+2019-01-09 16:34:35.236 +08:00 [INF] Route matched with {action = "Get", controller = "Value"}. Executing action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api)
+2019-01-09 16:34:35.251 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-09 16:34:35.257 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.57910000000000006ms.
+2019-01-09 16:34:35.268 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2019-01-09 16:34:35.277 +08:00 [INF] Executed action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) in 36.4717ms
+2019-01-09 16:34:35.284 +08:00 [INF] Request finished in 182.233ms 200 text/plain; charset=utf-8
+2019-01-09 16:34:39.413 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=3 application/json 
+2019-01-09 16:34:39.430 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:34:39.667 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:34:39.680 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:34:39.838 +08:00 [INF] Executed DbCommand (116ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:34:40.224 +08:00 [INF] Executed DbCommand (309ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_0))
+2019-01-09 16:34:40.375 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 698.54360000000008ms.
+2019-01-09 16:34:40.382 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:34:40.394 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 957.07980000000009ms
+2019-01-09 16:34:40.400 +08:00 [INF] Request finished in 984.7558ms 200 application/json; charset=utf-8
+2019-01-09 16:35:04.382 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=3&title=Title application/json 
+2019-01-09 16:35:04.384 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:35:04.398 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:35:04.402 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:35:04.419 +08:00 [WRN] The LINQ expression 'where ([x].Title.ToLowerInvariant() == __title_0)' could not be translated and will be evaluated locally.
+2019-01-09 16:35:04.425 +08:00 [WRN] The LINQ expression 'Count()' could not be translated and will be evaluated locally.
+2019-01-09 16:35:04.466 +08:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Title]
+FROM [Posts] AS [x]
+2019-01-09 16:35:04.476 +08:00 [WRN] The LINQ expression 'where ([x].Title.ToLowerInvariant() == __title_0)' could not be translated and will be evaluated locally.
+2019-01-09 16:35:04.479 +08:00 [WRN] The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.
+2019-01-09 16:35:04.480 +08:00 [WRN] The LINQ expression 'Take(__p_1)' could not be translated and will be evaluated locally.
+2019-01-09 16:35:04.498 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title]
+FROM [Posts] AS [x]
+ORDER BY [x].[Id]
+2019-01-09 16:35:04.505 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 103.4354ms.
+2019-01-09 16:35:04.507 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:35:04.508 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 122.21010000000001ms
+2019-01-09 16:35:04.510 +08:00 [INF] Request finished in 127.8933ms 200 application/json; charset=utf-8
+2019-01-09 16:35:12.219 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=3 application/json 
+2019-01-09 16:35:12.221 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:35:12.225 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:35:12.229 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:35:12.233 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:35:12.240 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_0))
+2019-01-09 16:35:12.245 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 16.558400000000002ms.
+2019-01-09 16:35:12.247 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:35:12.248 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 23.5664ms
+2019-01-09 16:35:12.249 +08:00 [INF] Request finished in 30.5376ms 200 application/json; charset=utf-8
+2019-01-09 16:35:39.404 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=3&title=Title application/json 
+2019-01-09 16:35:39.406 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:35:39.410 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:35:39.414 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:35:39.418 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Title]
+FROM [Posts] AS [x]
+2019-01-09 16:35:39.424 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title]
+FROM [Posts] AS [x]
+ORDER BY [x].[Id]
+2019-01-09 16:35:39.428 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 14.906ms.
+2019-01-09 16:35:39.431 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:35:39.432 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 23.149900000000002ms
+2019-01-09 16:35:39.443 +08:00 [INF] Request finished in 39.2621ms 200 application/json; charset=utf-8
+2019-01-09 16:35:48.225 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=3 application/json 
+2019-01-09 16:35:48.228 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:35:48.232 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:35:48.235 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:35:48.239 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:35:48.246 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_0))
+2019-01-09 16:35:48.250 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 15.123700000000001ms.
+2019-01-09 16:35:48.251 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:35:48.253 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 21.3217ms
+2019-01-09 16:35:48.255 +08:00 [INF] Request finished in 29.5512ms 200 application/json; charset=utf-8
+2019-01-09 16:36:01.670 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=3&title=Post%20Title%204 application/json 
+2019-01-09 16:36:01.674 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:36:01.678 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:36:01.682 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:36:01.688 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Title]
+FROM [Posts] AS [x]
+2019-01-09 16:36:01.698 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title]
+FROM [Posts] AS [x]
+ORDER BY [x].[Id]
+2019-01-09 16:36:01.710 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 28.640600000000003ms.
+2019-01-09 16:36:01.712 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:36:01.713 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 34.9493ms
+2019-01-09 16:36:01.722 +08:00 [INF] Request finished in 51.4825ms 200 application/json; charset=utf-8
+2019-01-09 16:36:13.078 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=3&title= application/json 
+2019-01-09 16:36:13.080 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:36:13.083 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:36:13.085 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:36:13.088 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:36:13.107 +08:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_0))
+2019-01-09 16:36:13.115 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 29.9466ms.
+2019-01-09 16:36:13.118 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:36:13.119 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 36.9219ms
+2019-01-09 16:36:13.121 +08:00 [INF] Request finished in 43.1189ms 200 application/json; charset=utf-8
+2019-01-09 16:36:21.326 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=10&title= application/json 
+2019-01-09 16:36:21.328 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:36:21.330 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:36:21.334 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:36:21.340 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:36:21.350 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_0))
+2019-01-09 16:36:21.354 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 21.180500000000002ms.
+2019-01-09 16:36:21.357 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:36:21.360 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 29.937ms
+2019-01-09 16:36:21.362 +08:00 [INF] Request finished in 35.8ms 200 application/json; charset=utf-8
+2019-01-09 16:36:32.241 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=9&title= application/json 
+2019-01-09 16:36:32.244 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:36:32.247 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:36:32.252 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:36:32.256 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:36:32.262 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_0))
+2019-01-09 16:36:32.265 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 14.184700000000001ms.
+2019-01-09 16:36:32.267 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:36:32.268 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 21.257ms
+2019-01-09 16:36:32.269 +08:00 [INF] Request finished in 27.8731ms 200 application/json; charset=utf-8
+2019-01-09 16:36:43.081 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=8&title= application/json 
+2019-01-09 16:36:43.082 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:36:43.084 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:36:43.085 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:36:43.088 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:36:43.118 +08:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_0))
+2019-01-09 16:36:43.122 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 37.1941ms.
+2019-01-09 16:36:43.124 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:36:43.125 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 41.7316ms
+2019-01-09 16:36:43.127 +08:00 [INF] Request finished in 45.664ms 200 application/json; charset=utf-8
+2019-01-09 16:36:51.045 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=1&pageSize=8&title= application/json 
+2019-01-09 16:36:51.049 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:36:51.052 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:36:54.163 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:36:57.044 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:38:17.262 +08:00 [INF] Executed DbCommand (19ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_0))
+2019-01-09 16:38:17.267 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=8&title= application/json 
+2019-01-09 16:38:17.269 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 86042.532ms.
+2019-01-09 16:38:17.269 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:38:17.270 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:38:17.271 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:38:17.272 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 86051.907400000011ms
+2019-01-09 16:38:19.126 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:38:19.127 +08:00 [INF] Request finished in 87909.944ms 200 application/json; charset=utf-8
+2019-01-09 16:38:19.130 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:38:19.151 +08:00 [INF] Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 16:38:19.154 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1876.6999ms.
+2019-01-09 16:38:19.156 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:38:19.158 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 1883.1713000000002ms
+2019-01-09 16:38:19.161 +08:00 [INF] Request finished in 1889.6308ms 200 application/json; charset=utf-8
+2019-01-09 16:38:30.729 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&title= application/json 
+2019-01-09 16:38:30.731 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:38:30.732 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:38:30.736 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:38:30.740 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [x]
+2019-01-09 16:38:30.745 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title], ROW_NUMBER() OVER(ORDER BY [x].[Id]) AS [__RowNumber__]
+    FROM [Posts] AS [x]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 16:38:30.754 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 18.328400000000002ms.
+2019-01-09 16:38:30.756 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:38:30.757 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 25.0866ms
+2019-01-09 16:38:30.759 +08:00 [INF] Request finished in 29.9469ms 200 application/json; charset=utf-8
+2019-01-09 16:39:25.391 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&title=Title+A application/json 
+2019-01-09 16:39:25.393 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:39:25.395 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:39:25.397 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:39:25.413 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Title]
+FROM [Posts] AS [x]
+2019-01-09 16:39:25.420 +08:00 [WRN] The LINQ expression 'where ([x].Title.ToLowerInvariant() == __title_0)' could not be translated and will be evaluated locally.
+2019-01-09 16:39:25.422 +08:00 [WRN] The LINQ expression 'Skip(__p_1)' could not be translated and will be evaluated locally.
+2019-01-09 16:39:25.423 +08:00 [WRN] The LINQ expression 'Take(__p_2)' could not be translated and will be evaluated locally.
+2019-01-09 16:39:25.428 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title]
+FROM [Posts] AS [x]
+ORDER BY [x].[Id]
+2019-01-09 16:39:25.438 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 41.248400000000004ms.
+2019-01-09 16:39:25.439 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:39:25.440 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 45.3844ms
+2019-01-09 16:39:25.442 +08:00 [INF] Request finished in 50.9481ms 200 application/json; charset=utf-8
+2019-01-09 16:39:26.700 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&title=Title+A application/json 
+2019-01-09 16:39:26.702 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 16:39:26.704 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 16:39:26.706 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 16:39:26.710 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Title]
+FROM [Posts] AS [x]
+2019-01-09 16:39:26.715 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [x].[Id], [x].[Author], [x].[Body], [x].[LastModified], [x].[Remark], [x].[Title]
+FROM [Posts] AS [x]
+ORDER BY [x].[Id]
+2019-01-09 16:39:26.718 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 12.767900000000001ms.
+2019-01-09 16:39:26.720 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 16:39:26.724 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 19.6107ms
+2019-01-09 16:39:26.725 +08:00 [INF] Request finished in 25.1529ms 200 application/json; charset=utf-8
+2019-01-09 17:10:44.856 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:10:45.086 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Posts] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-01-09 17:10:45.125 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-01-09 17:10:45.793 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-01-09 17:10:45.823 +08:00 [INF] Request finished in 30.7438ms 307 
+2019-01-09 17:10:45.889 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/values  
+2019-01-09 17:10:45.982 +08:00 [INF] Route matched with {action = "Get", controller = "Value"}. Executing action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api)
+2019-01-09 17:10:45.994 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-09 17:10:45.999 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.2968ms.
+2019-01-09 17:10:46.012 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2019-01-09 17:10:46.023 +08:00 [INF] Executed action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) in 37.2354ms
+2019-01-09 17:10:46.049 +08:00 [INF] Request finished in 159.6908ms 200 text/plain; charset=utf-8
+2019-01-09 17:11:31.382 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10 application/json 
+2019-01-09 17:11:31.403 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 17:11:31.626 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 17:11:31.651 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:11:31.710 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [p]
+2019-01-09 17:11:31.733 +08:00 [WRN] Query: '(from Post <generated>_2 in DbSet<Post> select [<generated>_2]).Skip(__p_0).Take(__p_1)' uses a row limiting operation (Skip/Take) without OrderBy which may lead to unpredictable results.
+2019-01-09 17:11:31.792 +08:00 [INF] Executed DbCommand (36ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title], ROW_NUMBER() OVER(ORDER BY @@RowCount) AS [__RowNumber__]
+    FROM [Posts] AS [p]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 17:11:31.910 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 275.8945ms.
+2019-01-09 17:11:31.915 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 17:11:31.928 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 520.9661ms
+2019-01-09 17:11:31.934 +08:00 [INF] Request finished in 552.6782ms 200 application/json; charset=utf-8
+2019-01-09 17:11:58.316 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&orderBy=id%20desc application/json 
+2019-01-09 17:11:58.319 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 17:11:58.323 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 17:11:58.344 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:11:58.403 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [p]
+2019-01-09 17:11:58.435 +08:00 [INF] Executed DbCommand (23ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title], ROW_NUMBER() OVER(ORDER BY [p].[Id] DESC) AS [__RowNumber__]
+    FROM [Posts] AS [p]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 17:11:58.442 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 102.41340000000001ms.
+2019-01-09 17:11:58.443 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 17:11:58.445 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 122.6991ms
+2019-01-09 17:11:58.446 +08:00 [INF] Request finished in 129.7128ms 200 application/json; charset=utf-8
+2019-01-09 17:24:25.066 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:24:25.320 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Posts] AS [p])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END
+2019-01-09 17:24:25.362 +08:00 [INF] User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2019-01-09 17:24:25.954 +08:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/values  
+2019-01-09 17:24:25.980 +08:00 [INF] Request finished in 26.7134ms 307 
+2019-01-09 17:24:26.050 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/values  
+2019-01-09 17:24:26.140 +08:00 [INF] Route matched with {action = "Get", controller = "Value"}. Executing action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api)
+2019-01-09 17:24:26.152 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) - Validation state: "Valid"
+2019-01-09 17:24:26.162 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.5872ms.
+2019-01-09 17:24:26.170 +08:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2019-01-09 17:24:26.178 +08:00 [INF] Executed action BlogDemo.Api.Controllers.ValueController.Get (BlogDemo.Api) in 32.450700000000005ms
+2019-01-09 17:24:26.184 +08:00 [INF] Request finished in 133.6875ms 200 text/plain; charset=utf-8
+2019-01-09 17:24:29.676 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&orderBy=id%20desc application/json 
+2019-01-09 17:24:29.697 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 17:24:29.923 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 17:24:29.946 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:24:30.050 +08:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [p]
+2019-01-09 17:24:30.110 +08:00 [INF] Executed DbCommand (21ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title], ROW_NUMBER() OVER(ORDER BY [p].[Id] DESC) AS [__RowNumber__]
+    FROM [Posts] AS [p]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 17:24:30.227 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 297.2015ms.
+2019-01-09 17:24:30.233 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 17:24:30.245 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 544.48750000000007ms
+2019-01-09 17:24:30.249 +08:00 [INF] Request finished in 571.8932ms 200 application/json; charset=utf-8
+2019-01-09 17:24:31.364 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&orderBy=id%20desc application/json 
+2019-01-09 17:24:31.368 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 17:24:31.372 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 17:24:31.379 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:24:31.383 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [p]
+2019-01-09 17:24:31.389 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title], ROW_NUMBER() OVER(ORDER BY [p].[Id] DESC) AS [__RowNumber__]
+    FROM [Posts] AS [p]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 17:24:31.395 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 17.0726ms.
+2019-01-09 17:24:31.400 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 17:24:31.402 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 31.8516ms
+2019-01-09 17:24:31.408 +08:00 [INF] Request finished in 43.5684ms 200 application/json; charset=utf-8
+2019-01-09 17:24:31.994 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&orderBy=id%20desc application/json 
+2019-01-09 17:24:31.998 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 17:24:32.001 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 17:24:32.004 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:24:32.012 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [p]
+2019-01-09 17:24:32.023 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title], ROW_NUMBER() OVER(ORDER BY [p].[Id] DESC) AS [__RowNumber__]
+    FROM [Posts] AS [p]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 17:24:32.032 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 28.7699ms.
+2019-01-09 17:24:32.034 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 17:24:32.036 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 35.5ms
+2019-01-09 17:24:32.038 +08:00 [INF] Request finished in 43.8025ms 200 application/json; charset=utf-8
+2019-01-09 17:24:32.474 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&orderBy=id%20desc application/json 
+2019-01-09 17:24:32.477 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 17:24:32.480 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 17:24:32.482 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:24:32.486 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [p]
+2019-01-09 17:24:32.490 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title], ROW_NUMBER() OVER(ORDER BY [p].[Id] DESC) AS [__RowNumber__]
+    FROM [Posts] AS [p]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 17:24:32.494 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 12.069600000000001ms.
+2019-01-09 17:24:32.498 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 17:24:32.500 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 20.8987ms
+2019-01-09 17:24:32.502 +08:00 [INF] Request finished in 27.4783ms 200 application/json; charset=utf-8
+2019-01-09 17:24:32.945 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&orderBy=id%20desc application/json 
+2019-01-09 17:24:32.947 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 17:24:32.950 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 17:24:32.954 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:24:32.960 +08:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [p]
+2019-01-09 17:24:32.968 +08:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title], ROW_NUMBER() OVER(ORDER BY [p].[Id] DESC) AS [__RowNumber__]
+    FROM [Posts] AS [p]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 17:24:32.972 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 18.2653ms.
+2019-01-09 17:24:32.974 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 17:24:32.976 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 26.5361ms
+2019-01-09 17:24:32.979 +08:00 [INF] Request finished in 34.0669ms 200 application/json; charset=utf-8
+2019-01-09 17:24:54.328 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/posts?pageIndex=0&pageSize=10&orderBy=author%20desc,id%20desc application/json 
+2019-01-09 17:24:54.331 +08:00 [INF] Route matched with {action = "Get", controller = "Post"}. Executing action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api)
+2019-01-09 17:24:54.334 +08:00 [INF] Executing action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) with arguments (["BlogDemo.Core.Entities.PostParameters"]) - Validation state: "Valid"
+2019-01-09 17:24:54.344 +08:00 [INF] Entity Framework Core 2.2.0-rtm-35687 initialized 'MyContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: RowNumberPaging 
+2019-01-09 17:24:54.354 +08:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Posts] AS [p]
+2019-01-09 17:24:54.708 +08:00 [INF] Executed DbCommand (327ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Author], [t].[Body], [t].[LastModified], [t].[Remark], [t].[Title]
+FROM (
+    SELECT [p].[Id], [p].[Author], [p].[Body], [p].[LastModified], [p].[Remark], [p].[Title], ROW_NUMBER() OVER(ORDER BY [p].[Author] DESC, [p].[Id] DESC) AS [__RowNumber__]
+    FROM [Posts] AS [p]
+) AS [t]
+WHERE ([t].[__RowNumber__] > @__p_0) AND ([t].[__RowNumber__] <= (@__p_0 + @__p_1))
+2019-01-09 17:24:54.748 +08:00 [INF] Executed action method BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 403.4295ms.
+2019-01-09 17:24:54.750 +08:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[BlogDemo.Infrastructure.Resources.PostResource, BlogDemo.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2019-01-09 17:24:54.752 +08:00 [INF] Executed action BlogDemo.Api.Controllers.PostController.Get (BlogDemo.Api) in 417.35330000000005ms
+2019-01-09 17:24:54.754 +08:00 [INF] Request finished in 424.5768ms 200 application/json; charset=utf-8
