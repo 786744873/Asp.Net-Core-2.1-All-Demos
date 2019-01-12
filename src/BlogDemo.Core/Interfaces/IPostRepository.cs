@@ -39,5 +39,9 @@ namespace BlogDemo.Core.Interfaces
         Task<Post> GetPostByIdAsync(int id);
 
         void AddPost(Post post);
+
+        void Delete(Post post);
+
+        void Update(Post post);
     }
 }

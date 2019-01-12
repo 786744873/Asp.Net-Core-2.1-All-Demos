@@ -64,7 +64,7 @@ namespace BlogDemo.Infrastructure.Repositories
 
             //query = query.OrderBy(x => x.Id);
 
-            //query = query.ApplySort(postParameters.OrderBy, _propertyMappingContainer.Resolve<PostResource, Post>());
+            query = query.ApplySort(postParameters.OrderBy, _propertyMappingContainer.Resolve<PostResource, Post>());
 
             query = query.OrderBy(postParameters.OrderBy);
 
@@ -86,6 +86,16 @@ namespace BlogDemo.Infrastructure.Repositories
         public void AddPost(Post post)
         {
             _myContext.Posts.Add(post);
+        }
+
+        public void Delete(Post post)
+        {
+            _myContext.Posts.Remove(post);
+        }
+
+        public void Update(Post post)
+        {
+            _myContext.Entry(post).State = EntityState.Modified;
         }
     }
 }

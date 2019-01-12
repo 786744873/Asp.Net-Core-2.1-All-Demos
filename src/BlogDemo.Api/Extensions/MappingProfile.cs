@@ -13,7 +13,11 @@ namespace BlogDemo.Api.Extensions
         public MappingProfile()
         {
             CreateMap<Post, PostResource>().ForMember(dest=>dest.UpdateTime,opt=>opt.MapFrom(src=>src.LastModified)).ReverseMap();
-            //CreateMap<PostResource, Post>().ReverseMap();
+            //CreateMap<PostResource, Post>().ForMember(desc => desc.LastModified, opt => opt.MapFrom(s => s.UpdateTime));
+
+            CreateMap<PostResource, Post>().ReverseMap();
+            CreateMap<PostAddResource, Post>().ReverseMap();
+            CreateMap<PostUpdateResource, Post>().ReverseMap();
         }
     }
 }
