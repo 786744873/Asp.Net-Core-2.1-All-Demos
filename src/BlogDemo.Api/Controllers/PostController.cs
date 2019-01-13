@@ -13,6 +13,8 @@ using BlogDemo.Core.Interfaces;
 using BlogDemo.Infrastructure.Extensions;
 using BlogDemo.Infrastructure.Resources;
 using BlogDemo.Infrastructure.Services;
+using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

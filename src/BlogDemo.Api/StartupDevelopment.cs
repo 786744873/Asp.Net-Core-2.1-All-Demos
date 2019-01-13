@@ -12,11 +12,14 @@ using BlogDemo.Infrastructure.Resources;
 using BlogDemo.Infrastructure.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -104,6 +107,15 @@ namespace BlogDemo.Api
             //添加对AutoMapper的支持
             services.AddAutoMapper();
 
+
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "https://localhost:5001";
+                    options.ApiName = "restapi";
+                });
+
+
             // 加入FluentValidation验证规则
             services.AddTransient<IValidator<PostResource>, PostResourceValidator>();
             services.AddTransient<IValidator<PostAddResource>, PostAddOrUpdateResourceValidator<PostAddResource>>();
@@ -124,6 +136,16 @@ namespace BlogDemo.Api
 
             // 检查过滤是否存在
             services.AddTransient<ITypeHelperService, TypeHelperService>();
+
+            // 针对所有用户，要认证用户才能访问
+            services.Configure<MvcOptions>(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .AddAuthenticationSchemes(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                    .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            });
 
         }
 

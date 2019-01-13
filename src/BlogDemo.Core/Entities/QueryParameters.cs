@@ -54,7 +54,7 @@ namespace BlogDemo.Core.Entities
             set => SetField(ref _pageSize,value);
         }
 
-        private string _orderBy;
+        private string _orderBy= nameof(IEntity.Id);
 
         public string OrderBy
         {

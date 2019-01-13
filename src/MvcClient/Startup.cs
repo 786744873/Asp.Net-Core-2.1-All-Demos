@@ -45,7 +45,10 @@ namespace MvcClient
                 options.DefaultScheme = "Cookies";
                 options.DefaultChallengeScheme = "oidc";
             })
-            .AddCookie("Cookies", optopns => { optopns.AccessDeniedPath = "/Authorization/AccessDenied"; })
+            .AddCookie("Cookies", optopns =>
+            {
+                optopns.AccessDeniedPath = "/Authorization/AccessDenied";
+            })
             .AddOpenIdConnect("oidc", options =>
             {
                 options.SignInScheme = "Cookies";
@@ -79,6 +82,10 @@ namespace MvcClient
             }
 
             app.UseHttpsRedirection();
+
+            // Authentication
+            app.UseAuthentication();
+
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
